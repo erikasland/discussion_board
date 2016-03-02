@@ -1,0 +1,37 @@
+<div id='topic-wrapper'>
+    <div id='topic-white-opaq'></div>
+    <header id='topic-header'>
+        <a id='dashboard-link' href="#/dashboard">Dashboard</a>
+        <a href="/" ng-click='topicControl.logout()'>Logout</a>
+    </header>
+    <div id='top-section'>
+        <div id='topic-wrap'>
+            <h3 id='user-who-posted'><a href='' ng-bind='topicControl.topic[0].user.name'></a> posted a topic</h3>
+            <h4 id='topic-title' ng-bind='topicControl.topic[0].title'></h4>
+            <h4 id='topic-desc' ng-bind='topicControl.topic[0].desc'></h4>
+        </div>
+        <div id='answer-wrap'>
+            <h3 id='have-something-to-say'>Have something to say?</h3>
+            <textarea id='post-response-textarea' ng-model='topicControl.answer' maxlength="255"></textarea>
+            <button id='post-message-btn' ng-click='topicControl.postAnswer(topicControl.topic)'>Post</button>
+        </div>   
+    </div>
+    <div id='message-section'>
+        <div id='message-wrap' ng-repeat='message in topicControl.messages[0].messages | orderBy: message.created_at'>
+            <a class='message-user' href='' ng-bind='message.user.user.name' ng-click='topicControl.redirToProfile(message.user.user._id, $index)'></a>
+            <p class='message-content' ng-bind='message.content'></p>
+            <div class='voting-div'>
+                <p class='votenum' ng-bind='message.upvotes.vote'></p>
+                <img class='updown' src='../static/images/up.png' ng-click='topicControl.vote(message._id, 0, topicControl.messages[0].user._id)'>
+                <p class='votenum' ng-bind='message.downvotes.vote'></p>
+                <img class='updown' src='../static/images/down.png' ng-click='topicControl.vote(message._id, 1, topicControl.messages[0].user._id)'>
+            </div>
+            <div ng-repeat='comment in message.comments'>
+                <a href='' class='comment-user' ng-click='topicControl.redirToProfile(comment.user.user._id, $index)' ng-bind='comment.user.user.name'></a>
+                <p class='comment-content' ng-bind='comment.content'></p>
+            </div>
+            <textarea class='add-comment' ng-model='topicControl.comment[$index]' maxlength="255"></textarea>
+            <button class='submit-comment-btn' ng-click='topicControl.postComment(message._id, topicControl.topic[0].user, $index)'>Comment</button>
+        </div>
+    </div>
+</div>

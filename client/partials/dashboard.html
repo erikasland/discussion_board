@@ -1,0 +1,50 @@
+<div id='dashboard-wrapper'>
+    <div id='dash-white-opaq'></div>
+    <header id='dash-header'>
+        <h2 id='dash-welcome-title'>Welcome, <span ng-bind='dashControl.logged_in_user.name'></span></h2>
+        <div id='search-wrap'>
+            <input id='search-input' type='text' ng-model='search' placeholder="Example: title of topic"></input>
+            <button id='search-btn'>Search</button>        
+        </div>
+    </header>
+    <section>
+        <div id='table-wrap'>
+            <div id='table-title-wrap'>
+                <h6 class='table-titles table-title-space' id='category-title'>Category</h6>
+                <h6 class='table-titles table-title-space'>Topic</h6>
+                <h6 class='table-titles table-title-space'>Author</h6>
+                <h6 class='table-titles'>Posts</h6>
+            </div>
+            <div id='table-data-wrap' ng-repeat='topic in dashControl.topics | filter: search | orderBy: topic.created_at'>
+                <p class='data' id='category' ng-bind='topic.category'></p>
+                <a href='' class='data' id='topic' ng-bind='topic.title' ng-click='dashControl.goToTopic($index, topic._id)'></a>
+                <a href='' ng-click='dashControl.redirToProfile(topic.user._id, $index)' class='data' id='username'ng-bind='topic.user.name'></a>
+                <a href='' class='data' id='post-count'ng-bind='dashControl.countTopicPosts(topic.messages)'>a</a>
+            </div>
+        </div>
+        <div id='add-topic-wrap'>
+            <h3 id='topic-wrap-title'>Add a new Topic</h3>
+            <div id='total-input-wrapper'>
+                <div class='topic-input-wrap'>
+                    <label>Topic: </label>
+                    <input id='topic-input' type='text' ng-model='dashControl.topic.title' maxlength='30'></input>
+                </div>
+                <div class='topic-input-wrap'>
+                    <label id='desc-label'>Description: </label>
+                    <textarea id='desc-input' ng-model='dashControl.topic.desc' maxlength='255'></textarea>
+                </div>
+                <div class='topic-input-wrap'>
+                    <label>Category: </label>
+                    <select id='category-input' ng-model='dashControl.topic.category'>
+                        <option>HTML5</option>
+                        <option>CSS3</option>
+                        <option>Javascript</option>
+                        <option>PostgreSQL</option>
+                        <option>Django</option>
+                    </select><br>
+                </div>
+            </div>
+            <button id='submit-topic' ng-click='dashControl.addTopic(dashControl.logged_in_user)'>Submit</button>
+        </div>
+    </section>
+</div>

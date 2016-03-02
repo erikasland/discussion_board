@@ -1,0 +1,22 @@
+<div id='profile-wrapper'>
+    <div id='profile-white-opaq'></div>
+    <header id='profile-header'>
+        <a id='profile-dash-link' href="#/dashboard">Dashboard</a>
+        <a href='/' ng-click='profileControl.logout()'>Logout</a>
+    </header>
+    <section id='profile-section'>
+        <div id='profile-user-title'>
+            <h3><span ng-bind='profileControl.user.name'></span>'s Profile</h3>
+            <h4>Posted...</h4>
+        </div>
+        <div class='profile-info-container'>
+            <h4 class='profile-info' ><span ng-bind='profileControl.user.topics'></span> Topics</h4>
+        </div>
+        <div class='profile-info-container'>
+            <h4 class='profile-info'><span ng-bind='profileControl.user.messages'></span> Messages</h4>
+        </div>
+        <div class='profile-info-container'>
+            <h4 class='profile-info'><span ng-bind='profileControl.user.comments'></span> Comments</h4>
+        </div>
+    </section>
+</div>

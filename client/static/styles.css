@@ -1,0 +1,894 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+/* remember to define visible focus styles! 
+:focus {
+    outline: ?????;
+} */
+
+/* remember to highlight inserts somehow! */
+ins {
+    text-decoration: none;
+}
+del {
+    text-decoration: line-through;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*CSS Begins*/
+html{
+    height: 100%;
+}
+
+body{
+    background: url(images/lupines.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+@media screen and (min-width: 0px){
+    h1, .data, .votenum, .updown, .table-titles{
+        display: inline-block;vertical-align: top;
+    }
+
+    a{
+        text-decoration: none;
+        color: black;
+    }
+
+    a:hover{
+        color: white;
+        font-style: italic;
+    }
+
+    #landing-btn, #landing-input{
+        display: block;
+    }
+
+    #landing-wrapper{
+        width: 19em;
+        height: 19em;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+    }
+
+    #landing-white-opaq{
+        opacity: .9;
+        background-color: white;
+        width: 19em;
+        height: 18.3em;
+        position: absolute;
+        z-index: -1;
+        border-radius: .2em;
+    }
+
+    h1{
+        font-family: 'Raleway';
+        font-size: 3em;
+        padding: .2em 0 0 0.17em;
+    }
+
+    #input-wrap{
+        width: 16.6em;
+        height: 7em;
+        margin: 3em auto 0 auto;
+        border: .2em dashed black;
+    }
+
+    #input-desc{
+        font-size: .95em;
+        text-align: center;
+        font-family: 'Raleway';
+        margin-top: .3em;
+    }
+
+    #landing-input{
+        margin: .5em auto 0 auto;
+        height: 1.6em;
+        width: 82%;
+    }
+
+    #landing-btn{
+        width: 83%;
+        height: 2.2em;
+        margin: .83em auto 1em auto;
+        background-color: transparent;
+        border: .2em solid black;
+        font-family: 'Raleway';
+        font-size: .83em;
+    }
+
+    #landing-btn:hover{
+        background-color: black;
+        color: white;
+    }
+
+    #dashboard-wrapper{
+        width: 19em;
+        height: 29em;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+    }
+
+    #dash-white-opaq{
+        height: 29em;
+        width: 19em;
+        background-color: white;
+        opacity: .9;
+        z-index: -1;
+        position: absolute;
+        border-radius: .2em;
+    }
+
+    #dash-header{
+        padding: .5em 0 1em 0;
+    }
+
+    #dash-welcome-title{
+        font-size: 1.5em;
+        font-family: 'Raleway';
+        text-align: center;
+    }
+
+    #search-wrap{
+        width: 15em;
+        margin: 0 auto;
+    }
+
+    #search-btn, #search-input{
+        background-color: transparent;
+        border: black solid .1em;
+        font-family: 'Raleway';
+    }
+
+    #search-btn{
+        width: 27%;
+    }
+
+    #search-input{
+        width: 69%;
+    }
+
+    #table-wrap{
+        width: 95%;
+        margin: 0 auto;
+        height: 9em;
+        border: solid black .1em;
+        overflow-y: auto;
+    }
+
+    #table-data-wrap{
+        height: 4em;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    #category{
+        width: 6em;
+    }
+
+    #topic{
+        width: 6em; 
+        height: 100%;
+    }
+
+    #username{
+        width: 7em;
+    }
+
+    #post-count{
+        width: .5em;
+    }
+
+    .data, .table-titles{
+        font-family: 'Raleway';
+        margin-left: .1em;
+        font-size: .8em;
+    }
+
+    .table-titles{
+        font-size: 1em;
+    }
+
+    #table-title-wrap{
+        height: 1.2em;
+        margin: 0 0 .5em 0;
+        border-bottom: .1em solid black;
+    }
+
+    .table-title-space{
+        padding-right: 1.3em;
+    }
+
+    #add-topic-wrap{
+        border: solid black .1em;
+        width: 95%;
+        margin: 1em auto 0 auto;
+    }
+
+    #topic-wrap-title{
+        font-family: 'Raleway';
+        text-align: center;
+        margin: 0.5em 0;
+    }
+
+    #total-input-wrapper{
+        width: 100%;
+        height: 9em;
+    }
+
+    .topic-input-wrap{
+        height: 3em;
+        margin-left: .5em;
+    }
+
+    .topic-input-wrap{
+        font-family: 'Raleway';
+        height: 3em;
+    }
+
+    #topic-input, #desc-input, #category-input{
+        box-sizing: border-box;
+        margin-right: .5em;
+    }
+
+
+    #topic-input{
+        width: 40%;
+        margin-left: 40%;
+    }
+
+    #desc-label{
+        vertical-align: top;
+    }
+
+    #desc-input{
+        width:  40%;
+        margin-left: 24.5%;
+    }
+
+    #category-input{
+        width: 40%;
+        height: 1.6em;
+        margin-left: 30%;
+    }
+
+    #submit-topic{
+        margin: 0 0 1em 6.5em;
+        height: 1.5em;
+        font-size: 1em;
+        font-family: 'Raleway';
+        background-color: transparent;
+        border: black solid .1em;
+    }
+
+    #topic-wrapper, #topic-white-opaq{
+        width: 19em;
+        height: 28em;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+    }
+
+    #topic-white-opaq{
+        background-color: white;
+        opacity: .9;
+        z-index: -1;
+        border-radius: .2em;
+    }
+
+    #topic-header{
+        font-family: 'Raleway';
+        margin: .5em 0 .1em 0;
+    }
+
+    #dashboard-link{
+        margin: 0 0 0 50%;
+    }
+
+    #top-section{
+        width: 18em;
+        border: black solid .1em;
+        margin: 0 auto;
+        height: 12em;
+        overflow-y: auto;
+    }
+
+    #topic-wrap{
+        padding: .5em;
+        font-family: 'Raleway';
+    }
+
+    #user-who-posted{
+        padding-bottom: .5em;
+        font-size: 1em;
+    }
+
+    #topic-title{
+        font-style: italic;
+        font-size: .9em;
+        padding: 0 0 0 .5em;
+    }
+
+    #topic-desc{
+        padding: .5em 0 0 1em;
+        font-size: .9em;
+    }
+
+    #answer-wrap{
+        padding: .2em 0 0 3em;
+        font-family: 'Raleway';
+    }
+
+    #post-response-textarea{
+        background-color: transparent;
+        border: black solid .1em;
+        height: 1.5em;
+    }
+
+    #post-message-btn{
+        font-size: .9em;
+        width: 4em;
+        height: 1.5em;
+        background-color: transparent;
+        border: solid black .1em;
+        margin: .25em 0 .5em 4em;
+    }
+
+    #message-section{
+        width: 18em;
+        margin: .5em auto 0 auto;
+        overflow-y: auto;
+        height: 12em;
+        border: solid black .1em;
+    }
+
+    #message-wrap{
+        margin: .5em .5em;
+        font-family: 'Raleway';
+    }
+
+    .message-content{
+        font-size: .9em;
+        margin: 0 0 0 2em;
+        font-style: italic;
+    }
+
+    .voting-div{
+        margin: 0 0 1em 1em;
+    }
+
+    .updown{
+        width: 1em;
+        height: 1em;
+    }
+
+    .comment-user{
+        margin: 0 0 0 1em;
+    }
+
+    .comment-content{
+        margin: .25em 0 1em 3em;
+        font-size: .9em;
+        font-style: italic;
+    }
+
+    .add-comment{
+        margin: 0 0 0 3.5em;
+        background-color: transparent;
+        border: black solid .1em;
+    }
+
+    .submit-comment-btn{
+        margin: 0 0 2em 6.5em;
+        font-family: 'Raleway';
+        background-color: transparent;
+        border: solid black .1em;
+        height: 2em;
+        width: 7em;
+    }
+
+    #profile-wrapper, #profile-white-opaq{
+        width: 19em;
+        height: 9.5em;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+    }
+
+    #profile-white-opaq{
+        opacity: .9;
+        z-index: -1;
+        border-radius: .2em;
+        background-color: white;
+    }
+
+    #profile-header{
+        font-family: 'Raleway';
+        padding: .5em 0 0 0;
+    }
+
+    #profile-dash-link{
+        margin: 0 0 0 52%;
+    }
+
+    #profile-section{
+        padding: 1em .5em 0 .5em;
+    }
+
+    #profile-user-title{
+        text-align: center;
+        font-family: 'Raleway';
+        padding: 0 0 1em 0;
+    }
+
+    .profile-info-container{
+        width: 100%;
+        font-family: 'Raleway';
+        margin: 0 auto .3em auto;
+        width: 6.5em;
+    }
+
+    .profile-info{
+        display: inline-block;
+        text-align: center;
+        width: 6.5em;
+    }
+
+}
+
+@media screen and (min-width: 481px){
+    #landing-wrapper{
+        width: 29em;
+        height: 24em;
+    }
+
+    #landing-white-opaq{
+        width: 29em;
+        height: 24em;
+    }
+
+    h1{
+        font-size: 4.6em;
+    }
+
+    #input-wrap{
+        width: 27em;
+        height: 9em;
+    }
+
+    #input-desc{
+        font-size: 1.7em;
+    }
+
+    #landing-input{
+        width: 90%;
+    }
+
+    #landing-btn{
+        width: 91%;
+        height: 3em;
+    }
+
+    #dashboard-wrapper, #dash-white-opaq{
+        width: 30em;
+        height: 30em;
+    }
+
+    #dash-welcome-title{
+        font-size: 2em;
+    }
+
+    #search-wrap{
+        width: 20em;
+    }
+
+    #topic{
+        width: 10em; 
+    }
+
+    #username{
+        width: 8em;
+    }
+
+    .data, .table-titles{
+        font-size: 1em;
+    }
+
+    .table-title-space{
+        padding-right: 4.3em;
+    }
+
+    #topic-wrap-title{
+        font-size: 1.2em;
+    }
+
+    #topic-input{
+        margin-left: 47%;
+    }
+
+    #desc-input{
+        margin-left: 37.5%;
+    }
+
+    #category-input{
+        margin-left: 41%;
+    }
+
+    #submit-topic{
+        margin: 0 0 1em 12em;
+    }
+
+    #topic-wrapper, #topic-white-opaq{
+        width: 29em;
+        height: 28em;
+    }
+
+    #topic-header{
+        margin: .4em 0 .1em 37%;
+    }
+
+    #top-section{
+        width: 28em;
+    }
+
+    #answer-wrap{
+        padding: .2em 0 0 30%;
+    }
+
+    #post-response-textarea{
+        height: 2.5em;
+    }
+
+    #post-message-btn{
+        width: 5em;
+        height: 2em;
+        margin: .25em 0 .5em 17%;
+        display: block;
+    }
+
+    #message-section{
+        width: 28em;
+        height: 11.5em;
+    }
+
+    .message-content{
+        margin: .5em 0 0 2em;
+    }
+
+    .voting-div{
+        margin: .5em 0 1em 2em;
+    }
+
+    .comment-content{
+        margin: .25em 0 1em 3em;
+    }
+
+    .add-comment{
+        margin: 0 0 0 28%;
+    }
+
+    .submit-comment-btn{
+        margin: .5em 0 2em 37.5%;
+        font-family: 'Raleway';
+    }
+
+    #profile-wrapper, #profile-white-opaq{
+        width: 25em;
+        height: 15.5em;
+    }
+
+    #profile-dash-link{
+        margin: 0 0 0 63%;
+    }
+
+    #profile-section{
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (min-width: 1024px){
+
+    #landing-wrapper, #landing-white-opaq{
+        width: 65em;
+        height: 25em;
+    }
+
+    #landing-wrapper{
+        position: static;
+        transform: none;
+        margin: 2em 0 0 2em;
+    }
+
+    h1{
+        font-size: 10.23em;
+    }
+
+    #input-wrap{
+        width: 24.4em;
+        height: 6.3em;
+        position: absolute;
+        top: 13em;
+        left: 39.5em;
+        border: .2em dashed black;
+    }
+
+    #input-desc{
+        font-size: 1.54em;
+        margin-top: .4em;
+    }
+
+    #landing-input{
+        width: 91.5%;
+        height: 1.5em;
+        font-size: .8em;
+        margin-top: .1em;
+    }
+
+    #landing-btn{
+        width: 92%;
+        font-size: 1em;
+        margin-top: .2em;
+        height: 1.5em;
+        border: solid black .1em;
+    }
+
+    #dashboard-wrapper, #dash-white-opaq{
+        width: 62em;
+        height: 35em;
+    }
+
+    #dash-header{
+        padding: .5em 0 .5em 0;
+    }
+
+    #dash-welcome-title{
+        font-size: 2.5em;
+        padding-bottom: .3em;
+    }
+
+    #search-wrap{
+        width: 30em;
+        height: 2em;
+    }
+
+    #search-input{
+        width: 70%;
+        height: 1.5em;
+    }
+
+    #search-btn{
+        width: 27%;
+        height: 1.8em;
+    }
+
+    #search-btn:hover{
+        background-color: black;
+        color: white;
+    }
+
+    #category{
+        width: 8em;
+    }
+
+    #category-title{
+        margin: 0 0 0 1em;
+    }
+
+    #topic{
+        width: 16.5em; 
+    }
+
+    #username{
+        width: 12.8em;
+    }
+
+    #table-wrap{
+        height: 11em;
+    }
+
+    .data, .table-titles{
+        font-size: 1.3em;
+    }
+
+    #table-title-wrap{
+        height: 1.7em;
+    }
+
+    .table-title-space{
+        padding-right: 8.8em;
+    }
+
+    #table-data-wrap{
+        height: 2em;
+        margin: 0 0 0 1em;
+    }
+
+    #topic-wrap-title{
+        font-size: 1.5em;
+    }
+
+    .topic-input-wrap{
+        font-size: 1.5em;
+        height: 2em;
+    }
+
+    #topic-input{
+        margin-left: 51%;
+    }
+
+    #desc-input{
+        margin-left: 44.1%;
+    }
+
+    #category-input{
+        margin-left: 46.6%;
+    }
+
+    #submit-topic{
+        margin: 0 0 1em 25.5em;
+        width: 8em;
+        height: 2em;
+    }
+
+    #submit-topic:hover{
+        background-color: black;
+        color: white;
+    }
+
+    #topic-wrapper, #topic-white-opaq{
+        width: 63em;
+        height: 34em;
+    }
+
+    #topic-header{
+        margin: .4em 0 .1em 71%;
+    }
+
+    #top-section{
+        width: 62em;
+        height: 17em;
+    }
+
+    #user-who-posted{
+        padding-bottom: .5em;
+        font-size: 1.5em;
+    }
+
+    #topic-title{
+        font-size: 1.2em;
+        padding: 0 0 1em 1em;
+    }
+
+    #answer-wrap{
+        padding: 1em 0 0 35%;
+    }
+
+    #have-something-to-say{
+        font-size: 1.1em;
+        margin: 0 0 .5em 3em;
+    }
+
+    #post-response-textarea{
+        height: 3.5em;
+        width: 22em;
+    }
+
+    #post-message-btn{
+        width: 8em;
+        margin: .5em 0 .5em 11.5%;
+        font-size: 1.1em;
+    }
+
+    #message-section{
+        width: 62em;
+        height: 14em;
+    }
+
+    .message-user{
+        font-size: 1.5em; 
+    }
+
+    .message-content{
+        font-size: 1.1em;
+    }
+
+    .add-comment{
+        margin: 0 0 0 35%;
+        width: 22em;
+        height: 3.5em;
+    }
+
+    .submit-comment-btn{
+        margin: .5em 0 2em 43%;
+        width: 8em;
+        font-size: 1.1em;
+    }
+
+    #profile-wrapper, #profile-white-opaq{
+        width: 43em;
+        height: 20.5em;
+    }
+
+    #profile-header{
+        font-size: 1.5em;
+    }
+
+    #profile-dash-link{
+        margin: 0 0 0 67%;
+    }
+
+    #profile-section{
+        padding: 1.5em .5em 0 .5em;
+        font-size: 2em;
+    }
+}
+
+@media screen and (max-height: 600px){
+    
+    #dashboard-wrapper, #topic-wrapper{
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media screen and (max-height: 400px){
+    
+    #landing-wrapper{
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
