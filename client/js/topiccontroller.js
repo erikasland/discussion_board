@@ -10,7 +10,7 @@ myModule.controller('topicController', function(userFactory, topicFactory, messa
     });
 
     this.logout = function(){
-        window.replace('/')
+        window.reload('/')
     }
 
     this.postAnswer = function(topic){
