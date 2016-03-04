@@ -383,6 +383,11 @@ body{
         margin: .25em 0 .5em 4em;
     }
 
+    #post-message-btn:hover{
+        background-color: black;
+        color: white;
+    }
+
     #message-section{
         width: 18em;
         margin: .5em auto 0 auto;
@@ -434,6 +439,11 @@ body{
         border: solid black .1em;
         height: 2em;
         width: 7em;
+    }
+
+    .submit-comment-btn:hover{
+        background-color: black;
+        color: white;
     }
 
     #profile-wrapper, #profile-white-opaq{
