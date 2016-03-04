@@ -6,8 +6,6 @@ myModule.controller('dashboardController', function(userFactory, topicFactory, t
         _this.topics = topics
     })
 
-    console.log(this.logged_in_user)
-
     this.countTopicPosts = function(topic){
         return topic.length;
     }
